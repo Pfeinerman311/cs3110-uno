@@ -4,6 +4,7 @@ type command =
   | Play of object_phrase
   | Draw of object_phrase
   | Set of object_phrase
+  | Playable
 
 exception Empty
 
@@ -22,4 +23,5 @@ let parse str =
   | h::t -> if h = "play" && t != [] then Play t else
     if h = "draw" then Draw t else
     if h = "set" && t!= [] then Set t else
+    if h = "playable" && t = [] then Playable else
       raise Malformed
