@@ -73,6 +73,11 @@ let next_card d =
   | [] -> raise NoCards
   | h::t -> h
 
+let last_cards d =
+  match d with
+  | [] -> raise NoCards
+  | h::t -> t
+
 let card_color c =
   match c with
   | (h, t) -> h

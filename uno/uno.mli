@@ -1,6 +1,12 @@
-type color
+type color =
+  | Red
+  | Yellow
+  | Green
+  | Blue
+  | Wild
 
-type action
+type action = Zero | One | Two | Three | Four | Five | Six | Seven | Eight 
+            | Nine | Skip | Reverse | Draw of int | None
 
 type card = color * action
 
@@ -20,9 +26,13 @@ val shuffle : deck -> deck
 
 val next_card : deck -> card
 
+val last_cards : deck -> deck
+
 val card_color : card -> color
 
 val card_action : card -> action
+
+val playable : card -> card -> bool
 
 val rem_card : card -> deck -> deck
 
